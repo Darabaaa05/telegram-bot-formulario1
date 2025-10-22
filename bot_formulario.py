@@ -68,7 +68,7 @@ async def email(update: Update, context: ContextTypes.DEFAULT_TYPE):
     return ConversationHandler.END
 
 # --- Configuración del bot ---
-app = ApplicationBuilder().token("AQUI_TU_TOKEN").build()
+app = ApplicationBuilder().token("7396827151:AAHvXooe60JdjM9uVNgPsPYRURnu11lx97g").build()
 
 conv_handler = ConversationHandler(
     entry_points=[CallbackQueryHandler(menu_callback, pattern='formulario')],
@@ -90,3 +90,4 @@ import asyncio
 asyncio.set_event_loop(asyncio.new_event_loop())
 
 app.run_polling()
+
