@@ -1,3 +1,4 @@
+# bot.py
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup, Update
 from telegram.ext import (
     ApplicationBuilder, CommandHandler, MessageHandler,
@@ -68,7 +69,8 @@ async def email(update: Update, context: ContextTypes.DEFAULT_TYPE):
     return ConversationHandler.END
 
 # --- Configuración del bot ---
-app = ApplicationBuilder().token("7396827151:AAHvXooe60JdjM9uVNgPsPYRURnu11lx97g").build()
+TOKEN = "7396827151:AAHvXooe60JdjM9uVNgPsPYRURnu11lx97g"  # tu token
+app = ApplicationBuilder().token(TOKEN).build()
 
 conv_handler = ConversationHandler(
     entry_points=[CallbackQueryHandler(menu_callback, pattern='formulario')],
@@ -86,7 +88,5 @@ app.add_handler(CallbackQueryHandler(menu_callback))
 
 print("🤖 Bot en marcha...")
 
-import asyncio
-asyncio.set_event_loop(asyncio.new_event_loop())
-
+# Ejecutar polling (Background Worker en Render)
 app.run_polling()
