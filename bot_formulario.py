@@ -4,6 +4,7 @@ from telegram.ext import (
     CallbackQueryHandler, ConversationHandler, filters, ContextTypes
 )
 import os
+
 # Estados de la conversación
 NOMBRE, EDAD, EMAIL = range(3)
 
@@ -68,7 +69,8 @@ async def email(update: Update, context: ContextTypes.DEFAULT_TYPE):
     return ConversationHandler.END
 
 # --- Configuración del bot ---
-app = ApplicationBuilder().token("7396827151:AAHvXooe60JdjM9uVNgPsPYRURnu11lx97g").build()
+TOKEN = "7396827151:AAHvXooe60JdjM9uVNgPsPYRURnu11lx97g"
+app = ApplicationBuilder().token(TOKEN).build()
 
 conv_handler = ConversationHandler(
     entry_points=[CallbackQueryHandler(menu_callback, pattern='formulario')],
@@ -95,5 +97,3 @@ app.run_webhook(
     port=PORT,
     webhook_url=WEBHOOK_URL
 )
-
-
