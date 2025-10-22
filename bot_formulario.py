@@ -89,11 +89,12 @@ app.add_handler(CallbackQueryHandler(menu_callback))
 print("🤖 Bot en marcha...")
 
 # --- Ejecutar en puerto para webhook ---
-PORT = int(os.environ.get("PORT", 5000))  # Render asigna este puerto automáticamente
-WEBHOOK_URL = f"https://<tu-app>.onrender.com/{TOKEN}"  # Cambia <tu-app> por tu URL en Render
+PORT = int(os.environ.get("PORT", 5000))
+WEBHOOK_URL = f"https://telegram-bot-formulario.onrender.com/{TOKEN}"
 
 app.run_webhook(
     listen="0.0.0.0",
     port=PORT,
     webhook_url=WEBHOOK_URL
 )
+
